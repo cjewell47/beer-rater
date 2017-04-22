@@ -41,8 +41,7 @@ gulp.task('serve', ['js', 'sass'], () => {
     port: 8000,
     files: ['public/**/*.*'],
     reloadDelay: 500,
-    notify: false,
-    open: false
+    notify: false
   });
 
   return nodemon({ script: 'index.js'})
