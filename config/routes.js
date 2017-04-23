@@ -6,6 +6,11 @@ const registrations = require('../controllers/registrations');
 
 router.get('/', (req, res) => res.render('statics/home'));
 
+router.route('/beers')
+  .get(beers.index);
+router.route('/beers/:id')
+  .get(beers.show);
+
 router.route('/register')
   .get(registrations.new)
   .post(registrations.create);
