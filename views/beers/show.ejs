@@ -8,3 +8,9 @@
 <p><%= beer.abv %> %</p>
 <img src="<%= beer.image %>">
 </li>
+
+<button><a href="/beers/<%= beer._id %>/edit">Edit</a></button>
+<form action="/beers/<%= beer.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete</button>
+</form>

@@ -1,0 +1,31 @@
+<h1 class="page-title">Edit <%= beer.name %></h1>
+
+<div class="container">
+  <form method="POST" action="/beers/<%= beer._id %>">
+    <input type="hidden" name="_method" value="put">
+    <div class="form-group">
+      <label class="col-form-label" for="name">Name</label>
+      <input type="text" name="name" value="<%= beer.name %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="tagline">Tagline</label>
+      <input type="text" name="tagline" value="<%= beer.tagline %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="description">Description</label>
+      <input type="text" name="description" value="<%= beer.description %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="abv">Abv</label>
+      <input type="text" name="abv" value="<%= beer.abv %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <label class="col-form-label" for="image">Image</label>
+      <input type="text" name="image" value="<%= beer.image %>" class="form-control">
+    </div>
+    <div class="form-group">
+      <button class="" type="submit" name="action">Submit
+      </button>
+    </div>
+  </form>
+</div>

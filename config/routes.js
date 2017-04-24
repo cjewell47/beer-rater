@@ -4,12 +4,31 @@ const beers         = require('../controllers/beers');
 const sessions      = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
 
+function secureRoute(req, res, next) {
+  if (!req.session.userId) {
+    return req.session.regenerate(() => {
+      req.flash('danger', 'You must be logged in to see that...');
+      res.redirect('/login');
+    });
+  }
+  next();
+}
+
 router.get('/', (req, res) => res.render('statics/home'));
 
 router.route('/beers')
-  .get(beers.index);
+  .get(beers.index)
+  .post(secureRoute, beers.create);
+router.route('/beers/new')
+  .get(secureRoute, beers.new);
 router.route('/beers/:id')
-  .get(beers.show);
+  .get(secureRoute, beers.show)
+  .put(secureRoute, beers.update);
+router.route('/beers/:id/edit')
+  .get(secureRoute, beers.edit);
+router.route('/beers/:id')
+  .delete(secureRoute, beers.delete);
+
 
 router.route('/register')
   .get(registrations.new)
