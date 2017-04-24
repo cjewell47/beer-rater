@@ -3,6 +3,7 @@ const router        = express.Router();
 const beers         = require('../controllers/beers');
 const sessions      = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
+const comments      = require('../controllers/comments');
 
 function secureRoute(req, res, next) {
   if (!req.session.userId) {
@@ -28,6 +29,8 @@ router.route('/beers/:id/edit')
   .get(secureRoute, beers.edit);
 router.route('/beers/:id')
   .delete(secureRoute, beers.delete);
+router.route('/beers/:id')
+  .post(secureRoute, comments.create);
 
 
 router.route('/register')

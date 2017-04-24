@@ -9,6 +9,17 @@
 <img src="<%= beer.image %>">
 </li>
 
+<form action="/beers/<%= beer._id %>" method="post">
+  <textarea name="body" rows="8" cols="80"></textarea>
+  <button type="submit" name="action">Submit comment</button>
+</form>
+
+<ul>
+<% beer.comment.forEach(comment => { %>
+  <li><a href="/users/<%= comment.user._id %>"><%= comment.username %></a> &middot; <%= comment.body %></li>
+<% }) %>
+</ul>
+
 <button><a href="/beers/<%= beer._id %>/edit">Edit</a></button>
 <form action="/beers/<%= beer.id %>" method="post">
   <input type="hidden" name="_method" value="delete">

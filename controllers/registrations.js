@@ -8,6 +8,7 @@ function registrationsCreate(req, res) {
   User
     .create(req.body)
     .then(() => {
+      req.flash('info', 'Thanks for registering, please login');
       res.redirect('/login');
     })
     .catch((err) => {
