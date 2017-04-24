@@ -9,16 +9,33 @@
 <img src="<%= beer.image %>">
 </li>
 
+
 <form action="/beers/<%= beer._id %>" method="post">
+  <select name="rating">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
   <textarea name="body" rows="8" cols="80"></textarea>
   <button type="submit" name="action">Submit comment</button>
 </form>
 
 <ul>
 <% beer.comment.forEach(comment => { %>
-  <li><a href="/users/<%= comment.user._id %>"><%= comment.username %></a> &middot; <%= comment.body %></li>
+  <li><a href="/users/<%= comment.user._id %>"><%= comment.username %></a> &middot; <%= comment.body %>, <%= comment.rating %></li>
 <% }) %>
 </ul>
+<% beer.comment.forEach(comment => { %>
+
+<% }) %>
+
 
 <button><a href="/beers/<%= beer._id %>/edit">Edit</a></button>
 <form action="/beers/<%= beer.id %>" method="post">

@@ -13,8 +13,9 @@ const beerSchema = new mongoose.Schema({
   dbId: { type: String },
   comment: [{
     user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
-    username: { type: String},
-    body: { type: String, trim: true, required: true }
+    username: { type: String, required: true },
+    body: { type: String, trim: true, required: true },
+    rating: { type: String, required: true }
   }, {
     timestamps: true
   }]

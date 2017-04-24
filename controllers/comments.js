@@ -1,7 +1,7 @@
 const Beer = require('../models/beer');
 
 function commentsCreate(req, res, next) {
-  // console.log(res.locals.user.username);
+  console.log(req.body.rating);
   Beer
     .findById(req.params.id)
     .exec()
@@ -15,7 +15,8 @@ function commentsCreate(req, res, next) {
       const comment = {
         user: res.locals.user._id,
         username: res.locals.user.username,
-        body: req.body.body
+        body: req.body.body,
+        rating: req.body.rating.toString()
       };
 
       beer.comment.push(comment);

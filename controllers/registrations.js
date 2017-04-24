@@ -7,8 +7,8 @@ function registrationsNew(req, res) {
 function registrationsCreate(req, res) {
   User
     .create(req.body)
-    .then(() => {
-      req.flash('info', 'Thanks for registering, please login');
+    .then((user) => {
+      req.flash('info', `Thanks for registering ${user.username}, please login`);
       res.redirect('/login');
     })
     .catch((err) => {
