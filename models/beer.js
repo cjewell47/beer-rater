@@ -11,14 +11,20 @@ const beerSchema = new mongoose.Schema({
   abv: { type: String },
   image: { type: String },
   dbId: { type: String },
-  comment: [{
+  comments: [{
     user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
     username: { type: String, required: true },
     body: { type: String, trim: true, required: true },
-    rating: { type: String, required: true }
+    rating: { type: Number, required: true }
   }, {
     timestamps: true
   }]
+});
+
+beerSchema.virtual('averageRating').get(function () {
+  if (this.comments.length === 0) return 0;
+  const sum = this.comments.reduce((previous, current) => current += previous.rating);
+  return sum / this.comments.length;
 });
 
 module.exports = mongoose.model('Beer', beerSchema);

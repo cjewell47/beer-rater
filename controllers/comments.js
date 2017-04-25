@@ -16,10 +16,10 @@ function commentsCreate(req, res, next) {
         user: res.locals.user._id,
         username: res.locals.user.username,
         body: req.body.body,
-        rating: req.body.rating.toString()
+        rating: parseInt(req.body.rating)
       };
 
-      beer.comment.push(comment);
+      beer.comments.push(comment);
 
       return beer.save();
     })
