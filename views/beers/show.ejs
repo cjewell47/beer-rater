@@ -40,6 +40,10 @@
 <% }) %>
 </ul>
 
+<form action="/sessions/show" method="POST">
+  <%# <input type="hidden" name="_method" value="put">%>
+  <button type="submit" name="action"><a href="/beers/<%= beer._id %>/favourite">Add to favourites!</a></button>
+</form>
 <button><a href="/beers/<%= beer._id %>/edit">Edit</a></button>
 <form action="/beers/<%= beer.id %>" method="post">
   <input type="hidden" name="_method" value="delete">

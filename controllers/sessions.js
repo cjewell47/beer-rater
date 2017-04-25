@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Beer = require('../models/beer');
 
 function sessionsNew(req, res) {
   res.render('sessions/new');
@@ -24,8 +25,52 @@ function sessionsDelete(req, res) {
   return req.session.regenerate(() => res.redirect('/'));
 }
 
+function sessionsShow(req, res) {
+  User
+    .findById(req.session.userId)
+    .exec()
+    .then(user => {
+      if (!user) {
+        req.flash('danger', 'Unknown password/email combination');
+        return res.redirect('/login');
+      }
+      return res.render('sessions/show', { user });
+    })
+    .catch(err => {
+      return res.render('error', { error: err });
+    });
+}
+
+function sessionsFavourite(req, res) {
+  Beer
+    .findById(req.params.id)
+    .exec()
+    .then(beer => {
+      // console.log(beer);
+      if(!beer) {
+        return res.render('error', { error: 'No beer was found.' });
+      }
+      // console.log(res.locals.user);
+      User
+        .findById(res.locals.user._id)
+        .exec()
+        .then(user => {
+          // console.log(beer);
+          // console.log(user);
+          user.favourites.push(beer);
+          user.save(err => {
+            console.log(err);
+          });
+          console.log(user.favourites);
+        });
+      res.redirect('/sessions/show');
+    });
+}
+
 module.exports= {
   new: sessionsNew,
   create: sessionsCreate,
-  delete: sessionsDelete
+  delete: sessionsDelete,
+  show: sessionsShow,
+  favourite: sessionsFavourite
 };

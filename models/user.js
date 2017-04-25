@@ -15,7 +15,7 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if (!this._passwordConfirmation || this._passwordConfirmation !== this.password) {
+  if (this.isModified('password') && (this._passwordConfirmation !== this.password)) {
     this.invalidate('passwordConfirmation', 'does not match');
   }
   next();
