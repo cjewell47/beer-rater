@@ -46,7 +46,6 @@ function sessionsFavourite(req, res) {
     .findById(req.params.id)
     .exec()
     .then(beer => {
-      // console.log(beer);
       if(!beer) {
         return res.render('error', { error: 'No beer was found.' });
       }
@@ -55,15 +54,21 @@ function sessionsFavourite(req, res) {
         .findById(res.locals.user._id)
         .exec()
         .then(user => {
-          // console.log(beer);
-          // console.log(user);
           user.favourites.push(beer);
           user.save(err => {
             console.log(err);
+          })
+          .populate(beer)
+          .exec(function (err, user) {
+            if(err) {
+              return res.render('error', { error: err });
+            }
+            console.log('You favourited ', user.favourite.name);
           });
-          console.log(user.favourites);
+          // console.log(user.favourites);
         });
-      res.redirect('/sessions/show');
+        // console.log(beer);
+      res.redirect(`/beers/${beer.id}`);
     });
 }
 

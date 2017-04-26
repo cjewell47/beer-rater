@@ -35,7 +35,6 @@ router.route('/beers/:id')
 router.route('/sessions/show')
   .get(secureRoute, sessions.show);
 
-
 router.route('/beers/:id/favourite')
   .get(secureRoute, sessions.favourite);
 
