@@ -1,22 +1,24 @@
 <h1 class="page-title">Beers.</h1>
 
 <div class="row index-page">
-  <ul class="col-md-6 offset-md-2">
-    <div class="col-md-6 offset-md-1">
+  <%# <ul class="col-md-6 offset-md-2">%>
+    <div class="col-md-6 offset-md-3">
     <% beers.forEach(beer => { %>
       <div class="row index-beer">
-        <li>
-        <div class="index-text">
-          <a href="/beers/<%= beer._id%>"><%= beer.name %></a>
-          </br>
-          <p><%= beer.tagline %></p>
-          <p><%= beer.description %></p>
-          <p><%= beer.abv %> %</p>
+        <div class="row image-box">
+          <div class="index-text">
+            <div class="centered caption">
+              <a href="/beers/<%= beer._id%>"><%= beer.name %></a>
+              </br>
+              <p><%= beer.tagline %></p>
+              <p><%= beer.description %></p>
+              <p><%= beer.abv %> %</p>
+            </div>
+          </div>
+          <img src="<%= beer.image %>">
         </div>
-        <img src="<%= beer.image %>">
-        </li>
       </div>
     <% }); %>
     </div>
-  </ul>
+  <%# </ul>%>
 </div>

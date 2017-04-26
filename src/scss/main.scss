@@ -16,21 +16,56 @@ body {
 }
 
 .index-beer {
-  background-color: #ffeba5;
+  background-color: #fffef2;
   text-align: center;
   margin: 30px auto;
   width: 600px;
   color: #261d00;
   border-radius: 6px;
+  left: -2em;
+  position: relative;
+  .image-box {
+    margin: 15px auto;
+  }
   a {
     color: #261d00;
   }
-  li {
-    width: inherit;
-    margin: 15px;
-    list-style: none;
+  img {
+    margin: auto;
   }
   .index-text {
-    
+    display: none;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 6px;
+    // vertical-align: text-middle;
+    background-color: rgba(75, 79, 54, 0.6);
+    color: #fff;
+    a {
+      color: #fff;
+    }
+    .caption {
+      width: 480px;
+    }
   }
+  // &:hover {
+  //   .index-text {
+  //     display: block;
+  //
+  //   }
+  // }
+}
+
+.centered {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 2;
 }
