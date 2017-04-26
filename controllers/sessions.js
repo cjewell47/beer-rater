@@ -15,7 +15,7 @@ function sessionsCreate(req, res, next) {
     }
     req.session.userId = user._id;
 
-    req.flash('info', `Welcome back ${user.username}`);
+    req.flash('success', `Welcome back ${user.username}`);
     res.redirect('/');
   })
   .catch(next);
@@ -62,7 +62,7 @@ function sessionsFavourite(req, res) {
         user.favourites.push(beer);
         user.save(err => {
           console.log(err);
-          req.flash('info', `${beer.name} was added to your favourites.`);
+          req.flash('success', `${beer.name} was added to your favourites.`);
           res.redirect(`/beers/${beer.id}`);
         });
       } else {

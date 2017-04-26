@@ -2,4 +2,35 @@ body {
   font-family: sans-serif;
   background: url('../images/BottleTops5.jpg');
   color: pink;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.page-title {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.row.index-page {
+  text-align: center;
+}
+
+.index-beer {
+  background-color: #ffeba5;
+  text-align: center;
+  margin: 30px auto;
+  width: 600px;
+  color: #261d00;
+  border-radius: 6px;
+  a {
+    color: #261d00;
+  }
+  li {
+    width: inherit;
+    margin: 15px;
+    list-style: none;
+  }
+  .index-text {
+    
+  }
 }
