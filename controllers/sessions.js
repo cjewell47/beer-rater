@@ -25,16 +25,17 @@ function sessionsDelete(req, res) {
   return req.session.regenerate(() => res.redirect('/'));
 }
 
-function sessionsShow(req, res) {
+function sessionsProfile(req, res) {
   User
     .findById(req.session.userId)
+    .populate('favourites')
     .exec()
     .then(user => {
       if (!user) {
         req.flash('danger', 'Unknown password/email combination');
         return res.redirect('/login');
       }
-      return res.render('sessions/show', { user });
+      return res.render('sessions/profile', { user });
     })
     .catch(err => {
       return res.render('error', { error: err });
@@ -43,39 +44,41 @@ function sessionsShow(req, res) {
 
 function sessionsFavourite(req, res) {
   Beer
-    .findById(req.params.id)
+  .findById(req.params.id)
+  .exec()
+  .then(beer => {
+    if(!beer) {
+      return res.render('error', { error: 'No beer was found.' });
+    }
+    // console.log(res.locals.user);
+    User
+    .findById(res.locals.user._id)
     .exec()
-    .then(beer => {
-      if(!beer) {
-        return res.render('error', { error: 'No beer was found.' });
-      }
-      // console.log(res.locals.user);
-      User
-        .findById(res.locals.user._id)
-        .exec()
-        .then(user => {
+    .then(user => {
+
+      for(let i = 0; i < user.favourites.length; i++) {
+        if (user.favourites[i] === beer){
+          return;
+        } else {
           user.favourites.push(beer);
           user.save(err => {
             console.log(err);
-          })
-          .populate(beer)
-          .exec(function (err, user) {
-            if(err) {
-              return res.render('error', { error: err });
-            }
-            console.log('You favourited ', user.favourite.name);
           });
-          // console.log(user.favourites);
-        });
-        // console.log(beer);
-      res.redirect(`/beers/${beer.id}`);
-    });
+        }
+        req.flash('info', `${beer.name} was added to your favourites.`);
+        res.redirect(`/beers/${beer.id}`);
+      }
+    }
+  );
+  });
 }
+
+
 
 module.exports= {
   new: sessionsNew,
   create: sessionsCreate,
   delete: sessionsDelete,
-  show: sessionsShow,
+  profile: sessionsProfile,
   favourite: sessionsFavourite
 };

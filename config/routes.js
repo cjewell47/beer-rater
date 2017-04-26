@@ -32,8 +32,8 @@ router.route('/beers/:id')
 router.route('/beers/:id')
   .post(secureRoute, comments.create);
 
-router.route('/sessions/show')
-  .get(secureRoute, sessions.show);
+router.route('/profile')
+  .get(secureRoute, sessions.profile);
 
 router.route('/beers/:id/favourite')
   .get(secureRoute, sessions.favourite);

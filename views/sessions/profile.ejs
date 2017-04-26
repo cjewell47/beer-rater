@@ -1,0 +1,19 @@
+<h1><%= user.username %>'s favourite beers</h1>
+
+<div class="row">
+  <ul>
+    <div class="col">
+    <% user.favourites.forEach(beer => { %>
+      <li>
+      <a href="/beers/<%= beer._id%>"><%= beer.name %></a>
+      </br>
+      <p><%= beer.tagline %></p>
+      <p><%= beer.description %></p>
+      <p><%= beer.abv %> %</p>
+      <img src="<%= beer.image %>">
+      </li>
+      </br>
+    <% }); %>
+    </div>
+  </ul>
+</div>
