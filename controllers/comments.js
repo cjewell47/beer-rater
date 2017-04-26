@@ -1,7 +1,7 @@
 const Beer = require('../models/beer');
 
 function commentsCreate(req, res, next) {
-  console.log(req.body.rating);
+  // console.log(req.body.rating);
   Beer
     .findById(req.params.id)
     .exec()
@@ -24,7 +24,12 @@ function commentsCreate(req, res, next) {
       return beer.save();
     })
     .then((beer) => {
-      console.log(beer);
+      // console.log(beer);
+      if (!beer) {
+        const err  = new Error('Beer not found.');
+        err.status = 404;
+        throw err;
+      }
       res.redirect(`/beers/${req.params.id}`);
     })
     .catch(next);

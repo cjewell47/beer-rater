@@ -7,18 +7,18 @@ function sessionsNew(req, res) {
 
 function sessionsCreate(req, res, next) {
   User
-    .findOne({ email: req.body.email })
-    .then((user) => {
-      if (!user || !user.validatePassword(req.body.password)) {
-        req.flash('danger', 'Unknown password/email combination');
-        return res.redirect('/login');
-      }
-      req.session.userId = user._id;
+  .findOne({ email: req.body.email })
+  .then((user) => {
+    if (!user || !user.validatePassword(req.body.password)) {
+      req.flash('danger', 'Unknown password/email combination');
+      return res.redirect('/login');
+    }
+    req.session.userId = user._id;
 
-      req.flash('info', `Welcome back ${user.username}`);
-      res.redirect('/');
-    })
-    .catch(next);
+    req.flash('info', `Welcome back ${user.username}`);
+    res.redirect('/');
+  })
+  .catch(next);
 }
 
 function sessionsDelete(req, res) {
@@ -27,26 +27,29 @@ function sessionsDelete(req, res) {
 
 function sessionsProfile(req, res) {
   User
-    .findById(req.session.userId)
-    .populate('favourites')
-    .exec()
-    .then(user => {
-      if (!user) {
-        req.flash('danger', 'Unknown password/email combination');
-        return res.redirect('/login');
-      }
-      return res.render('sessions/profile', { user });
-    })
-    .catch(err => {
-      return res.render('error', { error: err });
-    });
+  .findById(req.session.userId)
+  .populate('favourites')
+  .exec()
+  .then(user => {
+    if (!user) {
+      req.flash('danger', 'Unknown password/email combination');
+      return res.redirect('/login');
+    }
+    return res.render('sessions/profile', { user });
+  })
+  .catch(err => {
+    return res.render('error', { error: err });
+  });
 }
 
 function sessionsFavourite(req, res) {
+  let beerf;
   Beer
   .findById(req.params.id)
   .exec()
   .then(beer => {
+    // console.log('we got here', req.params.id)
+    beerf = beer;
     if(!beer) {
       return res.render('error', { error: 'No beer was found.' });
     }
@@ -55,21 +58,18 @@ function sessionsFavourite(req, res) {
     .findById(res.locals.user._id)
     .exec()
     .then(user => {
-
-      for(let i = 0; i < user.favourites.length; i++) {
-        if (user.favourites[i] === beer){
-          return;
-        } else {
-          user.favourites.push(beer);
-          user.save(err => {
-            console.log(err);
-          });
-        }
-        req.flash('info', `${beer.name} was added to your favourites.`);
+      if (user.favourites.indexOf(beerf._id) === -1) {
+        user.favourites.push(beer);
+        user.save(err => {
+          console.log(err);
+          req.flash('info', `${beer.name} was added to your favourites.`);
+          res.redirect(`/beers/${beer.id}`);
+        });
+      } else {
+        req.flash('danger', `${beer.name} is already in your favourites.`);
         res.redirect(`/beers/${beer.id}`);
       }
-    }
-  );
+    });
   });
 }
 

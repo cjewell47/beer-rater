@@ -40,10 +40,9 @@
 <% }) %>
 </ul>
 
-<form action="/profile" method="POST">
-  <%# <input type="hidden" name="_method" value="put">%>
+<%# <form action="/profile" method="POST">%>
   <button type="submit" name="action"><a href="/beers/<%= beer._id %>/favourite">Add to favourites!</a></button>
-</form>
+<%# </form>%>
 <button><a href="/beers/<%= beer._id %>/edit">Edit</a></button>
 <form action="/beers/<%= beer.id %>" method="post">
   <input type="hidden" name="_method" value="delete">

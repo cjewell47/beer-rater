@@ -7,7 +7,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   favourites: [{ type: mongoose.Schema.ObjectId, ref: 'Beer', unique: true }]
 });
-// populate this?
 
 
 userSchema

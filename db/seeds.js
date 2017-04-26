@@ -8,8 +8,10 @@ const databseURL = env.db;
 mongoose.connect(databseURL);
 
 const Beer = require('../models/beer');
+const User = require('../models/user');
 
 Beer.collection.drop();
+User.collection.drop();
 
 
 rp('https://api.punkapi.com/v2/beers')
