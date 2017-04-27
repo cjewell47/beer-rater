@@ -3,38 +3,66 @@
   background-color: rgba(255, 254, 242, 0.7);
   border-radius: 10px;
   color: #261d00;
-}
-
-.show-beer {
-  // background-color: rgba(255, 254, 242, 0.7);
-  text-align: center;
-  margin: 40px auto;
-  // width: 750px;
-  // left: -1em;
-  position: relative;
-  .show-image {
-    margin: 25px auto;
-  //  left: -2em;
+  width: 750px;
+  margin: auto;
+  p {
+    text-align: justify;
   }
   a {
     color: #261d00;
+    text-decoration: none;
+    cursor: default;
   }
-  img {
-    margin: auto;
+  .show-beer {
+    // background-color: rgba(255, 254, 242, 0.7);
+    text-align: center;
+    margin: 40px auto;
+    width: 500px;
+    // left: -1em;
+    position: relative;
+    .show-image {
+      margin: 15px auto;
+      margin-bottom: 0;
+    //  left: -2em;
+    }
+    img {
+      margin: auto;
+    }
   }
 }
+
+
 
 
 .show-comment {
   position: relative;
   text-align: center;
   margin: 20px auto;
-  .br-wrapper {
-    width: 200px;
+  textarea {
+    text-align: left;
+  }
+  button {
+
+  }
+  .box-header {
+    text-align: left;
+    width: 250px;
     margin: auto;
+  }
+  .br-wrapper {
+    width: 250px;
+    margin: auto;
+
   }
 }
 
+.btn-group {
+  button {
+    height: 40px;
+    width: 180px;
+    color: #fff;
+  }
+}
 
 
 .br-theme-bars-1to10 .br-widget .br-current-rating {
@@ -43,8 +71,10 @@
 
 .br-theme-bars-1to10 .br-widget a {
   background-color: #fffef2;
+  width: 16px;
+  height: 40px;
 }
 
 .br-theme-bars-1to10 .br-widget a.br-active, .br-theme-bars-1to10 .br-widget a.br-selected {
-  background-color: #261d00;
+  background-color: #f0ad4e;
 }
