@@ -1,0 +1,49 @@
+.row.index-page {
+  text-align: center;
+}
+
+.index-beer {
+  background-color: rgba(255, 254, 242, 0.7);
+  text-align: center;
+  margin: 40px auto;
+  width: 600px;
+  color: #261d00;
+  border-radius: 10px;
+  left: -2em;
+  position: relative;
+  .image-box {
+    margin: 25px auto;
+  }
+  a {
+    color: #261d00;
+  }
+  img {
+    margin: auto;
+  }
+  .index-text {
+    display: none;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    // vertical-align: text-middle;
+    background-color: rgba(81, 35, 3, 0.7);
+    color: #fff;
+    a {
+      color: #fff;
+    }
+    .caption {
+      width: 480px;
+    }
+  }
+  // &:hover {
+  //   .index-text {
+  //     display: block;
+  //
+  //   }
+  // }
+}
