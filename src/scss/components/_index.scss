@@ -50,11 +50,14 @@
 
 
 @media(max-width: 960px) {
+  .page-title, #profile-title {
+    width: 560px;
+  }
   .index-beer {
     width: 560px;
     font-size: 16px;
     left: -6em;
-    img {
+    img.index-img {
       width: 75%;
       height: 75%;
     }
@@ -65,11 +68,14 @@
 }
 
 @media(max-width: 780px) {
+  .page-title, #profile-title {
+    width: 480 px;
+  }
   .index-beer {
     width: 480px;
     font-size: 16px;
     left: 0;
-    img {
+    img.index-img {
       width: 70%;
       height: 70%;
     }
@@ -84,6 +90,9 @@
 }
 
   @media (max-width: 600px) {
+    .page-title, #profile-title {
+      width: 320px;
+    }
     .index-beer {
       width: 320px;
       font-size: 16px;

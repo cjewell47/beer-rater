@@ -7,7 +7,7 @@
     <p><%= beer.abv %> %</p>
     <p>Average rating: <%= avg %>/10</p>
     <div class="col-md-6 show-image">
-      <img src="<%= beer.image %>">
+      <img class="show-img" src="<%= beer.image %>">
     </div>
   </div>
 
@@ -31,13 +31,13 @@
         </div>
       </div>
       <textarea name="body" rows="4" cols="60"></textarea><br>
-      <button type="submit" class="btn btn-warning" name="action">Submit comment</button>
+      <button type="submit" class="btn btn-warning" name="action">Comment</button>
     </form>
   </div>
 
   <div class="btn-wrapper">
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="submit" name="action" class="btn btn-warning"><a href="/beers/<%= beer._id %>/favourite">Add to favourites!</a></button>
+      <button type="submit" name="action" class="btn btn-warning"><a href="/beers/<%= beer._id %>/favourite">Favourite</a></button>
       <button class="btn btn-warning"><a href="/beers/<%= beer._id %>/edit">Edit</a></button>
       <form action="/beers/<%= beer.id %>" method="post">
         <input type="hidden" name="_method" value="delete">
