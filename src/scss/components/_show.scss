@@ -4,7 +4,7 @@
   border-radius: 10px;
   color: #261d00;
   width: 750px;
-  margin: auto;
+  margin: 40px auto;
   p {
     text-align: justify;
   }
@@ -40,9 +40,11 @@
   margin: 20px auto;
   textarea {
     text-align: left;
+    margin: 15px auto;
   }
   button {
-
+    height: 40px;
+    width: 180px;
   }
   .box-header {
     text-align: left;
@@ -52,15 +54,18 @@
   .br-wrapper {
     width: 250px;
     margin: auto;
-
   }
 }
 
-.btn-group {
-  button {
-    height: 40px;
-    width: 180px;
-    color: #fff;
+.btn-wrapper {
+  width: inherit;
+  text-align: center;
+  .btn-group {
+    button {
+      height: 40px;
+      width: 180px;
+      color: #fff;
+    }
   }
 }
 
@@ -77,4 +82,10 @@
 
 .br-theme-bars-1to10 .br-widget a.br-active, .br-theme-bars-1to10 .br-widget a.br-selected {
   background-color: #f0ad4e;
+}
+
+.show-comment-display {
+  width: 600px;
+  text-align: justify;
+  margin: 30px auto;
 }
