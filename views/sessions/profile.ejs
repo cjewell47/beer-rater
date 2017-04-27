@@ -1,21 +1,23 @@
-<h1><%= user.username %>'s favourite beers</h1>
+<h1 id="profile-title"><%= user.username %>'s favourite beers</h1>
 
-<div class="row profile-page">
-  <ul>
-    <div class="col">
+<div class="row index-page">
+  <div class="col-md-6 offset-md-3">
     <% user.favourites.forEach(beer => { %>
-      <div class="row profile-display">
-        <li>
-        <a href="/beers/<%= beer._id%>"><%= beer.name %></a>
-        </br>
-        <p><%= beer.tagline %></p>
-        <p><%= beer.description %></p>
-        <p><%= beer.abv %> %</p>
-        <img src="<%= beer.image %>">
-        </li>
+      <div class="row index-beer">
+        <div class="row image-box">
+          <div class="index-text">
+            <div class="centered caption">
+              <h2><%= beer.name %></h2>
+              </br>
+              <p><%= beer.tagline %></p>
+              <p><%= beer.description %></p>
+              <p><%= beer.abv %> %</p>
+            </div>
+          </div>
+          <img src="<%= beer.image %>">
+        </div>
       </div>
       </br>
-    <% }); %>
+      <% }); %>
     </div>
-  </ul>
-</div>
+  </div>
