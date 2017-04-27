@@ -9,7 +9,7 @@
     text-align: justify;
   }
   a {
-    color: #261d00;
+    color: #fff;
     text-decoration: none;
     cursor: default;
   }
@@ -45,6 +45,7 @@
   button {
     height: 40px;
     width: 180px;
+    color: #fff;
   }
   .box-header {
     text-align: left;
@@ -66,6 +67,12 @@
       width: 180px;
       color: #fff;
     }
+    // .btn:hover > a {
+    //   color: white;
+    // }
+    // button:hover {
+    //   color: white;
+    // }
   }
 }
 
