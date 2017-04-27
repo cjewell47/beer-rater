@@ -1,6 +1,6 @@
 .row.show-page {
   text-align: center;
-  background-color: rgba(255, 254, 242, 0.7);
+  background-color: $light-background-color;
   border-radius: 10px;
   color: #261d00;
   width: 750px;
@@ -78,7 +78,7 @@
 
 
 .br-theme-bars-1to10 .br-widget .br-current-rating {
-  color: #261d00;
+  color: $dark-font-color;
 }
 
 .br-theme-bars-1to10 .br-widget a {
@@ -88,7 +88,7 @@
 }
 
 .br-theme-bars-1to10 .br-widget a.br-active, .br-theme-bars-1to10 .br-widget a.br-selected {
-  background-color: #f0ad4e;
+  background-color: $primary-background-color;
 }
 
 .show-comment-display {

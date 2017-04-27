@@ -4,7 +4,7 @@ img#nav-logo {
 }
 
 nav.navbar {
-  background-color: #F0AD4E;
+  background-color: $primary-background-color;
   a.nav-item.nav-link:hover {
     color: #fff;
   }
