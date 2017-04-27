@@ -38,6 +38,9 @@
     }
     .caption {
       width: 480px;
+      p {
+        font-size: 26px;
+      }
     }
   }
   // &:hover {
@@ -100,6 +103,9 @@
         width: inherit;
         .caption {
           width: 260px;
+          p {
+            font-size: 16px;
+          }
         }
       }
     }
