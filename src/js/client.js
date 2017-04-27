@@ -13,16 +13,16 @@ $(() => {
     $(this).find('.index-text').delay(120).fadeOut();
   });
 
-  $('.profile-display').on('mouseenter', function() {
-    // $(this).find('.profile-text').css({display: 'inline-block'});
-    $(this).find('.profile-text').delay(120).fadeIn();
-
-  });
-
-  $('.profile-display').on('mouseleave', function() {
-    // $(this).find('.profile-text').css({display: 'none'});
-    $(this).find('.profile-text').delay(120).fadeOut();
-  });
+  // $('.profile-display').on('mouseenter', function() {
+  //   // $(this).find('.profile-text').css({display: 'inline-block'});
+  //   $(this).find('.profile-text').delay(120).fadeIn();
+  //
+  // });
+  //
+  // $('.profile-display').on('mouseleave', function() {
+  //   // $(this).find('.profile-text').css({display: 'none'});
+  //   $(this).find('.profile-text').delay(120).fadeOut();
+  // });
 
 
 });
