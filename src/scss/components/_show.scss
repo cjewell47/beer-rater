@@ -10,11 +10,11 @@
   text-align: center;
   margin: 40px auto;
   // width: 750px;
-  left: -1em;
+  // left: -1em;
   position: relative;
   .show-image {
     margin: 25px auto;
-    left: -4em;
+  //  left: -2em;
   }
   a {
     color: #261d00;
@@ -22,4 +22,29 @@
   img {
     margin: auto;
   }
+}
+
+
+.show-comment {
+  position: relative;
+  text-align: center;
+  margin: 20px auto;
+  .br-wrapper {
+    width: 200px;
+    margin: auto;
+  }
+}
+
+
+
+.br-theme-bars-1to10 .br-widget .br-current-rating {
+  color: #261d00;
+}
+
+.br-theme-bars-1to10 .br-widget a {
+  background-color: #fffef2;
+}
+
+.br-theme-bars-1to10 .br-widget a.br-active, .br-theme-bars-1to10 .br-widget a.br-selected {
+  background-color: #261d00;
 }

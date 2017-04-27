@@ -1,7 +1,7 @@
 <h1 class="page-title"><%= beer.name %></h1>
 
 <div class="row show-page">
-  <div class="col-md-6 offset-md-3 show-beer">
+  <div class="col-md-12 offset-md-3 show-beer">
     <p><%= beer.tagline %></p>
     <p><%= beer.description %></p>
     <p><%= beer.abv %> %</p>
@@ -11,28 +11,29 @@
     </div>
   </div>
 
-
-  <form action="/beers/<%= beer._id %>" method="post">
-    <div class="box box-orange box-example-1to10">
-      <div class="box-header">Rate this beer</div>
-      <div class="box-body">
-        <select id="example-1to10" name="rating" autocomplete="off">
-          <option value="1" selected="selected">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
+  <div class="col-md-12 offset-md-3 show-comment">
+    <form action="/beers/<%= beer._id %>" method="post">
+      <div class="box box-orange box-example-1to10">
+        <div class="box-header">Rate this beer</div>
+        <div class="box-body">
+          <select id="example-1to10" name="rating" autocomplete="off">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <textarea name="body" rows="4" cols="60"></textarea>
-    <button type="submit" name="action">Submit comment</button>
-  </form>
+      <textarea name="body" rows="4" cols="60"></textarea>
+      <button type="submit" name="action">Submit comment</button>
+    </form>
+  </div>
 
   <ul>
   <% beer.comments.forEach(comment => { %>
