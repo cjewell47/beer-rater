@@ -30,8 +30,8 @@ function beersShow(req, res) {
       sum += parseInt( averageRating[i], 10 ); //don't forget to add the base
     }
 
-    const avg = sum/averageRating.length;
-    
+    const avg = (sum/averageRating.length).toFixed(2);
+
     return res.render('beers/show', { beer, avg });
   })
   .catch(err => {

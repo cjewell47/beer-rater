@@ -47,9 +47,11 @@
   </div>
 
   <div class="show-comment-display">
+    <h2>Comments</h2>
+  <br>
     <ul>
     <% beer.comments.forEach(comment => { %>
-      <li><%= comment.username %> <br> &middot; <%= comment.body %> &middot; <%= comment.rating %>/10</li></br>
+      <li><%= comment.username %> <br> &middot; <%= comment.body %> &middot; <%= comment.rating %>/10</li></br><hr>
     <% }) %>
     </ul>
   </div>
