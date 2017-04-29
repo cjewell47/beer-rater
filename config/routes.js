@@ -4,6 +4,7 @@ const beers         = require('../controllers/beers');
 const sessions      = require('../controllers/sessions');
 const registrations = require('../controllers/registrations');
 const comments      = require('../controllers/comments');
+const users         = require('../controllers/users');
 
 function secureRoute(req, res, next) {
   if (!req.session.userId) {
@@ -33,10 +34,10 @@ router.route('/beers/:id')
   .post(secureRoute, comments.create);
 
 router.route('/profile')
-  .get(secureRoute, sessions.profile);
+  .get(secureRoute, users.profile);
 
 router.route('/beers/:id/favourite')
-  .get(secureRoute, sessions.favourite);
+  .get(secureRoute, users.favourite);
 
 router.route('/register')
   .get(registrations.new)

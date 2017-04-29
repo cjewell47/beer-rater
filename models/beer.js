@@ -9,7 +9,6 @@ const beerSchema = new mongoose.Schema({
   tagline: { type: String },
   description: { type: String },
   abv: { type: String },
-  // avg: { type: String },
   image: { type: String },
   dbId: { type: String },
   comments: [{
