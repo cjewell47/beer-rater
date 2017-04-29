@@ -8,6 +8,8 @@ For my secondt project on GA London's WDI course I created a RESTful app for use
 
 ![Homepage screenshot](http://i65.tinypic.com/wv4rix.png)
 
+![Index screenshot](http://i65.tinypic.com/330tp2s.png)
+
 ## Project brief
 
 Build a full-stack RESTful Express application that includes authentication. Include a Mongo database using the Mongoose ORM.
