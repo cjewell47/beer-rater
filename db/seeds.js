@@ -33,3 +33,5 @@ rp('https://api.punkapi.com/v2/beers')
     });
   })
   .catch(console.log);
+
+// now seeded
