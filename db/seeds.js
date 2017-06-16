@@ -33,35 +33,3 @@ rp('https://api.punkapi.com/v2/beers')
     });
   })
   .catch(console.log);
-
-
-// const letters = ['a', 'e', 'i', 'o', 'u', 'y'];
-//
-// getBeers();
-//
-// function getBeers() {
-//   for ( let i = 0; i < letters.length; i++) {
-//     setTimeout(() => {
-//       rp(`https://api.brewerydb.com/v2/search?q=${letters[i]}&type=beer&key=46334ee126026181b04f8f030e8220ce&format=json`)
-//       .then(data => {
-//         console.log(data);
-//         bluebird.map(data, beer => {
-//           return Beer.create({
-//             name: beer.name,
-//             displayName: beer.nameDisplay,
-//             description: beer.description,
-//             abv: beer.abv,
-//             image: beer.labels.medium,
-//             dbId: beer.id
-//           });
-//         })
-//         .then(beers => {
-//           console.log(`${beers.length} were saved.`);
-//           process.exit();
-//         });
-//       })
-//       .catch(console.log);
-//     },
-//       3000);
-//   }
-// }
